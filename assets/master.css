@@ -1,3 +1,22 @@
+/*Variable*/
+:root {
+	--title-color: #a3a3a3;
+	--button-bg: blue;
+	--border-color: gray;
+	--danger-color: red;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button {
+	padding: 0px;
+	margin: 0px;
+}
 .site-header {
 	min-height: 80px;
 	background-color: #fff;
@@ -17,4 +36,51 @@
 }
 .main-navigation .menu-primary-container .nav-menu .menu-item:not(:last-child) {
 	padding-right: 20px;
+}
+.main-navigation .menu-primary-container menu {
+	display: flex;
+	justify-content: flex-end;
+	list-style: none;
+}
+.jobs-archive h2 {
+	margin-top: 70px;
+	margin-bottom: 30px;
+}
+.jobs-archive .job-lists {
+	list-style: none;
+	padding: 0px;
+}
+.jobs-archive .job-lists .job-item {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--border-color);
+	padding: 20px 20px;
+}
+.jobs-archive .job-lists .job-item:not(:last-child) {
+	margin-bottom: 30px;
+}
+.jobs-archive .job-lists .job-item .left > img {
+	margin-right: 20px;
+}
+.jobs-archive .job-lists .job-item .right {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+}
+.jobs-archive .job-lists .job-item .right .content h3 {
+	font-size: 25px;
+}
+.jobs-archive .job-lists .job-item .right .content p {
+	font-size: 18px;
+	font-weight: 700;
+}
+.jobs-archive .job-lists .job-item .right .content .application-date {
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--danger-color);
+}
+.jobs-archive .job-lists .job-item .right .job-details-btn {
+	background-color: var(--button-bg);
+	color: #fff;
 }

@@ -70,15 +70,17 @@ function jobs_custom_taxanomy() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
+        'has_archive'       => true,
         'rewrite'           => array( 'slug' => 'category' ),
     );
  
-    register_taxonomy( 'category', array( 'job' ), $args );
+    register_taxonomy( 'job_category', array( 'job' ), $args );
 }
 add_action( 'init', 'jobs_custom_taxanomy' );
 
-//metabox
-abstract class Jobs_Meta_Box {
+// Meta Box
+
+abstract class WPOrg_Meta_Box {
  
  
     /**
@@ -88,14 +90,8 @@ abstract class Jobs_Meta_Box {
         $screens = [ 'job' ];
         foreach ( $screens as $screen ) {
             add_meta_box(
-                'meta_company',          // Unique ID
-                'Company', // Box title
-                [ self::class, 'html' ],   // Content callback, must be of type callable
-                $screen                  // Post type
-            );
-            add_meta_box(
-                'meta_Date',          // Unique ID
-                'Date', // Box title
+                'wporg_box_id',          // Unique ID
+                'Other', // Box title
                 [ self::class, 'html' ],   // Content callback, must be of type callable
                 $screen                  // Post type
             );
@@ -109,13 +105,22 @@ abstract class Jobs_Meta_Box {
      * @param int $post_id  The post ID.
      */
     public static function save( int $post_id ) {
-        if ( array_key_exists( 'job_company', $_POST ) ) {
+       // if ( array_key_exists( 'option-a', $_POST ) ) {
             update_post_meta(
                 $post_id,
-                '_job_company',
-                $_POST['job_company']
+                '_wporg_meta_key',
+                $_POST['company'],
             );
-        }
+            update_post_meta(
+                $post_id,
+                '_wporg_meta_key_b',
+                $_POST['apply-date']
+            );
+             update_post_meta(
+                 $post_id,
+                 '_wporg_meta_key_apply_link',
+                 $_POST['apply-link']
+            );
     }
  
  
@@ -125,14 +130,61 @@ abstract class Jobs_Meta_Box {
      * @param \WP_Post $post   Post object.
      */
     public static function html( $post ) {
-        $value = get_post_meta( $post->ID, '_job_company', true );
+        $company = get_post_meta( $post->ID, '_wporg_meta_key', true );
+        $apply_date = get_post_meta( $post->ID, '_wporg_meta_key_b', true );
+        $apply_link = get_post_meta( $post->ID, '_wporg_meta_key_apply_link', true );
         ?>
-        <input type="text" placeholder="<?php echo $value ?>" name="job_company">
-        <input type="text" placeholder="Enter Date" name="job_date">
-        
+        <div class="job-others">
+            <div class="left">
+            <h4>Company</h4>
+            </div>
+            <div class="right">
+            <input type="text" name="company" value="<?php
+                if($company !== ''){
+                    echo $company;
+                }
+                else{
+                    echo "Enter Company";
+                }
+            ?>">
+            </div>
+        </div>
+        <div class="job-others">
+            <div class="left">
+            <h4>Application Date</h4>
+            </div>
+            <div class="right">
+            <input type="date" name="apply-date" value="<?php
+                if($apply_date !== ''){
+                    echo $apply_date;
+                }
+                else{
+                    echo "Application Date";
+                    
+                }
+            ?>">
+            </div>
+        </div>
+        <div class="job-others">
+            <div class="left">
+            <h4>Apply Button Link</h4>
+            </div>
+            <div class="right">
+            <input type="text" name="apply-link" value="<?php
+                if($apply_link !== ''){
+                    echo $apply_link;
+                }
+                else{
+                    echo "Enter Link";
+                    
+                }
+            ?>">
+            </div>
+        </div>
+
         <?php
     }
 }
  
-add_action( 'add_meta_boxes', [ 'Jobs_Meta_Box', 'add' ] );
-add_action( 'save_post', [ 'Jobs_Meta_Box', 'save' ] );
+add_action( 'add_meta_boxes', [ 'WPOrg_Meta_Box', 'add' ] );
+add_action( 'save_post', [ 'WPOrg_Meta_Box', 'save' ] );
