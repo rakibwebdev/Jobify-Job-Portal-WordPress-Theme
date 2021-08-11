@@ -9,7 +9,7 @@
 
 if ( ! defined( 'JOBIFY_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'JOBIFY_VERSION', '1.0.0' );
+	define( 'JOBIFY_VERSION', '1.0.1' );
 }
 
 if ( ! function_exists( 'jobify_setup' ) ) :
@@ -140,12 +140,12 @@ add_action( 'after_setup_theme', 'jobify_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function jobify_scripts() {
-	wp_enqueue_style( 'jobify-style', get_stylesheet_uri(), array(), rand() );
-	wp_enqueue_style( 'jobify-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css', array(), rand() );
-	wp_enqueue_style( 'jobify-master', get_stylesheet_directory_uri(). '/assets/master.css', array(), rand() );
+	wp_enqueue_style( 'jobify-style', get_stylesheet_uri(), array(), JOBIFY_VERSION );
+	wp_enqueue_style( 'jobify-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css', array(), JOBIFY_VERSION );
+	wp_enqueue_style( 'jobify-master', get_stylesheet_directory_uri(). '/assets/master.css', array(), JOBIFY_VERSION );
 
-	wp_enqueue_script( 'jobify-navigation', get_template_directory_uri() . '/js/navigation.js', array(), rand(), true );
-	wp_enqueue_script( 'jobify-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js', 'jQuery', rand(), true );
+	wp_enqueue_script( 'jobify-navigation', get_template_directory_uri() . '/js/navigation.js', array(), JOBIFY_VERSION, true );
+	wp_enqueue_script( 'jobify-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js', 'jQuery', JOBIFY_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'jobify_scripts' );
 
@@ -170,3 +170,5 @@ require get_template_directory() . '/inc/customizer.php';
 
 //cpt
 require get_template_directory() . '/inc/cpt.php';
+
+// pagination

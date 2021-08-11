@@ -1,7 +1,7 @@
 /*Variable*/
 :root {
 	--title-color: #a3a3a3;
-	--button-bg: blue;
+	--button-bg: #00C2CB;
 	--border-color: gray;
 	--danger-color: red;
 }
@@ -83,4 +83,58 @@ button {
 .jobs-archive .job-lists .job-item .right .job-details-btn {
 	background-color: var(--button-bg);
 	color: #fff;
+}
+.single-jobs {
+	margin-top: 70px;
+}
+.single-jobs .left {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--border-color);
+	padding: 20px 20px;
+	margin-bottom: 50px;
+}
+.single-jobs .left .post-thumb > img {
+	margin-right: 20px;
+}
+.single-jobs .left .title-container h2 {
+	font-size: 25px;
+}
+.single-jobs .left h3 {
+	font-size: 18px;
+	font-weight: 700;
+}
+.single-jobs .left .post-categories > a {
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--danger-color);
+}
+.single-jobs .apply-btn {
+	background-color: var(--button-bg);
+	color: #fff;
+	margin-top: 30px;
+}
+.single-jobs .summery-title-container {
+	width: 100%;
+	background-color: gray;
+	padding: 10px 20px;
+	font-size: 20px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+.single-jobs .summery-title-container h3 {
+	font-size: 20px;
+}
+.single-jobs .summary-container h4 {
+	font-size: 17px;
+}
+.single-jobs .summary-container h4:not(:last-child) {
+	margin-bottom: 10px;
+}
+.single-jobs .summary-container h4 span {
+	font-size: 15px;
+	color: #00C2CB;
+}
+.single-jobs .summary-container h4 span > a {
+	color: #a29c9c;
 }

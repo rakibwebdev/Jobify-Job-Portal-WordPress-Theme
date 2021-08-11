@@ -71,7 +71,7 @@ function jobs_custom_taxanomy() {
         'show_admin_column' => true,
         'query_var'         => true,
         'has_archive'       => true,
-        'rewrite'           => array( 'slug' => 'category' ),
+        'rewrite'           => array( 'slug' => 'job-category' ),
     );
  
     register_taxonomy( 'job_category', array( 'job' ), $args );
@@ -105,12 +105,10 @@ abstract class WPOrg_Meta_Box {
      * @param int $post_id  The post ID.
      */
     public static function save( int $post_id ) {
-       // if ( array_key_exists( 'option-a', $_POST ) ) {
-            update_post_meta(
-                $post_id,
-                '_wporg_meta_key',
-                $_POST['company'],
-            );
+
+            
+                update_post_meta($post_id, '_wporg_meta_key', $_POST['company']);
+            
             update_post_meta(
                 $post_id,
                 '_wporg_meta_key_b',
@@ -122,7 +120,6 @@ abstract class WPOrg_Meta_Box {
                  $_POST['apply-link']
             );
     }
- 
  
     /**
      * Display the meta box HTML to the user.
