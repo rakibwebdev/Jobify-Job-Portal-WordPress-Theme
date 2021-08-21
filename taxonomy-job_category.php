@@ -25,7 +25,11 @@ $query = new WP_Query( $args );
                         <?php while ($query -> have_posts()) : $query -> the_post(); ?>
                             <li class="job-item">
                                 <div class="left">
-                                    <?php the_post_thumbnail( 'thumbnail' ); ?>
+                                    <?php 
+                                        $get_title =  get_the_title(); 
+                                        $ltr_group = substr($get_title, 0, 1);
+                                        echo $ltr_group;
+                                    ?>
                                 </div>
                                 <div class="right">
                                     <div class="content">

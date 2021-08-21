@@ -34,6 +34,15 @@ button {
 	justify-content: flex-end;
 	list-style: none;
 }
+.main-navigation .menu-primary-container .nav-menu .menu-item{
+    position: relative;
+}
+.main-navigation .sub-menu{
+    position: absolute;
+    left: 21px;
+    list-style: none;
+    background-color: red;
+}
 .main-navigation .menu-primary-container .nav-menu .menu-item:not(:last-child) {
 	padding-right: 20px;
 }
@@ -54,13 +63,22 @@ button {
 	display: flex;
 	align-items: center;
 	border: 1px solid var(--border-color);
-	padding: 20px 20px;
+	padding: 10px;
 }
 .jobs-archive .job-lists .job-item:not(:last-child) {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
-.jobs-archive .job-lists .job-item .left > img {
-	margin-right: 20px;
+.jobs-archive .job-lists .job-item .left {
+	background-color: #eae1e1;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 10px;
+    border-radius: 3px;
 }
 .jobs-archive .job-lists .job-item .right {
 	display: flex;
@@ -69,15 +87,19 @@ button {
 	align-items: center;
 }
 .jobs-archive .job-lists .job-item .right .content h3 {
-	font-size: 25px;
+	font-size: 16px;
+	color: #333;
 }
 .jobs-archive .job-lists .job-item .right .content p {
-	font-size: 18px;
-	font-weight: 700;
+	margin-top: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #595959;
 }
 .jobs-archive .job-lists .job-item .right .content .application-date {
-	font-size: 18px;
+	font-size: 13px;
 	font-weight: 500;
+	margin-top: -5px;
 	color: var(--danger-color);
 }
 .jobs-archive .job-lists .job-item .right .job-details-btn {
@@ -91,22 +113,35 @@ button {
 	display: flex;
 	align-items: center;
 	border: 1px solid var(--border-color);
-	padding: 20px 20px;
+	padding: 10px;
 	margin-bottom: 50px;
 }
-.single-jobs .left .post-thumb > img {
-	margin-right: 20px;
+.single-jobs .left .post-thumb{
+	background-color: #eae1e1;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 10px;
+    border-radius: 3px;
 }
 .single-jobs .left .title-container h2 {
-	font-size: 25px;
+	font-size: 16px;
+	color: #333;
 }
 .single-jobs .left h3 {
-	font-size: 18px;
-	font-weight: 700;
+	margin-top: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #595959;
 }
-.single-jobs .left .post-categories > a {
-	font-size: 18px;
+.single-jobs .left .post-categories{
+	font-size: 13px;
 	font-weight: 500;
+	margin-top: -5px;
 	color: var(--danger-color);
 }
 .single-jobs .apply-btn {

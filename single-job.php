@@ -8,6 +8,20 @@ $company = get_post_meta( $post->ID, '_wporg_meta_key', true );
 $apply_date = get_post_meta( $post->ID, '_wporg_meta_key_b', true );
 $apply_link = get_post_meta( $post->ID, '_wporg_meta_key_apply_link', true );
 ?>
+<div class="social-share mt-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>
+					Social Share
+					<span><?php echo do_shortcode('[xs_social_share]'); ?></span>
+				</h3>
+			</div>
+			
+		</div>
+	</div>
+	
+</div>
 <div class="single-jobs">
     <div class="container">
         <div class="row">
@@ -16,7 +30,11 @@ $apply_link = get_post_meta( $post->ID, '_wporg_meta_key_apply_link', true );
                 <div class="left">
                     <!-- Post Thumbnail -->
                     <div class="post-thumb">
-                        <?php the_post_thumbnail( 'thumbnail' ); ?>
+                        <?php 
+                                        $get_title =  get_the_title(); 
+                                        $ltr_group = substr($get_title, 0, 1);
+                                        echo $ltr_group;
+                                    ?>
                     </div>
                     <!-- Post Title -->
                     <div class="title-container">
